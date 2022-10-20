@@ -1,55 +1,62 @@
 import React from 'react'
 
-const WeatherCard = ({weatherInfo}) => {
+const WeatherCard = ({ weatherInfo }) => {
 
-    const {temp, humidity, pressure, weatherMood, name, speed, country, sunset} = weatherInfo
+    const { temp, humidity, pressure, weatherMood, name, speed, country, sunset } = weatherInfo
 
     let sec = sunset
     let date = new Date(sec * 1000)
     let timeStr = `${date.getHours()}:${date.getMinutes()}`
 
+    setInterval(() => {
+        document.getElementById("time").innerHTML = new Date().toLocaleTimeString()
+    },1000)
+
     return (
         <>
-            <div className="text-center">
-                <div className="row">
-                    <div className="col border border-primary py-5">
-                        Weather Icon
+            <div className='weatherCard'>
+                <div className="text-center">
+                    <div className="row bg-light">
+                        <div className="col py-5 fs-1">
+                            <i class="fa-solid fa-sun"></i>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div className="text-center">
-                <div className="row">
-                    <div className="col border border-primary py-4">
-                        <p className='fs-1'>{temp}&#176;</p>
-                    </div>
-                    <div className="col border border-primary py-4">
-                        <p className='fs-2'>{weatherMood}</p> 
-                        <p>{name},{country}</p>
-                    </div>
-                    <div className="col border border-primary py-4">
-                        1/8/2020
+                <div className="text-center">
+                    <div className="row bg-info">
+                        <div className="col py-4">
+                            <p className='fs-1 pt-4'>{temp}&#176;</p>
+                        </div>
+                        <div className="col py-4">
+                            <p className='fs-2'>{weatherMood}</p>
+                            <p className='fs-5'>{name},{country}</p>
+                        </div>
+                        <div className="col py-4">
+                            <p className='fs-5 pt-3'>{new Date().toDateString()}</p>
+                            <p className='fs-5' id='time'></p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div className="text-center">
-                <div className="row">
-                    <div className="col border border-primary py-4">
-                        <p>{timeStr} PM</p>
-                        <p>Sunset</p>
-                    </div>
-                    <div className="col border border-primary py-4">
-                        <p>{humidity}</p>
-                        <p>Humidity</p>
-                    </div>
-                    <div className="col border border-primary py-4">
-                        <p>{pressure}</p>
-                        <p>Pressure</p>
-                    </div>
-                    <div className="col border border-primary py-4">
-                        <p>{speed}</p>
-                        <p>Speed</p>
+                <div className="text-center">
+                    <div className="row bg-light">
+                        <div className="col py-4">
+                            <p className='fs-5'>{timeStr}</p>
+                            <p className='fs-5'>Sunset</p>
+                        </div>
+                        <div className="col py-4">
+                            <p className='fs-5'>{humidity}</p>
+                            <p className='fs-5'>Humidity</p>
+                        </div>
+                        <div className="col py-4">
+                            <p className='fs-5'>{pressure}</p>
+                            <p className='fs-5'>Pressure</p>
+                        </div>
+                        <div className="col py-4">
+                            <p className='fs-5'>{speed}</p>
+                            <p className='fs-5'>Speed</p>
+                        </div>
                     </div>
                 </div>
             </div>
