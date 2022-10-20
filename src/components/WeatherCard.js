@@ -28,7 +28,7 @@ const WeatherCard = ({weatherInfo}) => {
                         <p>{name},{country}</p>
                     </div>
                     <div className="col border border-primary py-4">
-                        1/8/2002
+                        1/8/2020
                     </div>
                 </div>
             </div>
